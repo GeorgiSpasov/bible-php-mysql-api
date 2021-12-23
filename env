@@ -37,7 +37,8 @@
 # DATABASE
 #--------------------------------------------------------------------
 
-# database.default.hostname = localhost
+# database.default.hostname = localhost # add path to index.php
+# database.default.port = 8889 # add custom port
 # database.default.database = ci4
 # database.default.username = root
 # database.default.password = root

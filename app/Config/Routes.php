@@ -31,7 +31,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+// $routes->get('/', 'Home::index');
+$routes->resource('verse', ['only' => ['show']]);
+$routes->add('chapter/(:alpha)/(:alpha)/(:num)', 'Verse::chapter/$1/$2/$3');
+$routes->add('range/(:alpha)/(:alpha)/(:num)/(:num)/(:num)', 'Verse::range/$1/$2/$3/$4/$5');
+$routes->resource('reference', ['only' => ['show']]);
 
 /*
  * --------------------------------------------------------------------
