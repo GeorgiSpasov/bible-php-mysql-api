@@ -1,0 +1,42 @@
+CRITICAL - 2021-12-21 15:28:08 --> Too few arguments to function App\Controllers\Verse::chapter(), 0 passed in /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php on line 824 and exactly 3 expected
+#0 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Verse->chapter()
+#1 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verse))
+#2 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/bible-php-mysql-api/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-12-21 15:29:58 --> Too few arguments to function App\Controllers\Verse::chapter(), 0 passed in /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php on line 824 and exactly 3 expected
+#0 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Verse->chapter()
+#1 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verse))
+#2 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/bible-php-mysql-api/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-12-21 16:28:36 --> Too few arguments to function App\Controllers\Verse::chapter(), 2 passed in /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php on line 824 and exactly 3 expected
+#0 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Verse->chapter('bg', 'Bit..')
+#1 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verse))
+#2 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/bible-php-mysql-api/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-12-21 16:30:51 --> Too few arguments to function App\Controllers\Verse::chapter(), 2 passed in /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php on line 824 and exactly 3 expected
+#0 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Verse->chapter('bg', 'Bit.1')
+#1 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verse))
+#2 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/bible-php-mysql-api/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-12-21 16:31:21 --> Too few arguments to function App\Controllers\Verse::chapter(), 2 passed in /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php on line 824 and exactly 3 expected
+#0 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Verse->chapter('bg', 'Bit.1')
+#1 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verse))
+#2 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/bible-php-mysql-api/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-12-21 16:31:49 --> Too few arguments to function App\Controllers\Verse::chapter(), 2 passed in /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php on line 824 and exactly 3 expected
+#0 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Verse->chapter('bg', 'Bit.1')
+#1 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verse))
+#2 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/bible-php-mysql-api/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-12-21 16:31:51 --> Too few arguments to function App\Controllers\Verse::chapter(), 2 passed in /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php on line 824 and exactly 3 expected
+#0 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Verse->chapter('bg', 'Bit.1')
+#1 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verse))
+#2 /Applications/MAMP/htdocs/bible-php-mysql-api/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/bible-php-mysql-api/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
