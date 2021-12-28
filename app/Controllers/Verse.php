@@ -9,19 +9,16 @@ class Verse extends ResourceController
   protected $modelName = 'App\Models\VerseModel';
   protected $format = 'json';
 
-  // findVerseById
   public function show($language = null, $id = null)
   {
     $verses = $this->model->where('id', "$language.$id")->first();
+    $options = [
+      'max-age'  => 604800,
+    ];
+    $this->response->setCache($options);
     return $this->respond($verses);
-    if ($verses) {
-      return $this->respond($verses);
-    } else {
-      return $this->failNotFound('No Data Found with id: ' . "$language.$id");
-    }
   }
 
-  // getChapter
   public function chapter($language, $book, $chapterNum)
   {
     $verses = $this->model->where('language', $language)
@@ -29,10 +26,13 @@ class Verse extends ResourceController
       ->where('chapterNum', $chapterNum)
       ->orderBy('verseNum', 'asc')
       ->findAll();
+    $options = [
+      'max-age'  => 604800,
+    ];
+    $this->response->setCache($options);
     return $this->respond($verses);
   }
 
-  // findVersesBetweenNums
   public function range($language, $book, $chapterNum, $fromVerseNum, $toVerseNum)
   {
     $verses = $this->model->where('language', $language)
@@ -42,6 +42,10 @@ class Verse extends ResourceController
       ->where('verseNum <=', $toVerseNum)
       ->orderBy('verseNum', 'asc')
       ->findAll();
+    $options = [
+      'max-age'  => 604800,
+    ];
+    $this->response->setCache($options);
     return $this->respond($verses);
   }
 }

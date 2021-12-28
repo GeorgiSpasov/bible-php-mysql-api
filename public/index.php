@@ -1,5 +1,7 @@
 <?php
-
+header('Access-Control-Allow-Origin: http://localhost:3000');
+header('Access-Control-Request-Headers: http://localhost:3000');
+header('Access-Control-Allow-Methods: GET, OPTIONS');
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 

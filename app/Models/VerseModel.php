@@ -8,5 +8,5 @@ class VerseModel extends Model
 {
   protected $table = 'verses';
   protected $primaryKey = 'id';
-  protected $allowedFields = ['id', 'book', 'chapterNum', 'verseNum', 'text', 'language', 'hasRefs'];
+  protected $returnType = \App\Entities\Verse::class;
 }

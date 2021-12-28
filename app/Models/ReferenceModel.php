@@ -8,5 +8,5 @@ class ReferenceModel extends Model
 {
   protected $table = 'references';
   protected $primaryKey = 'id';
-  protected $allowedFields = ['id', 'refBook', 'refChapter', 'refVerse', 'referenceVerseId', 'verseId'];
+  protected $returnType = \App\Entities\Reference::class;
 }
