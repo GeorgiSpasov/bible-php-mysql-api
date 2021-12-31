@@ -1,3 +1,12 @@
+# API Installation
+- clone project
+- in 'codeigniter' folder run composer update --ignore-platform-reqs
+- in .env set CI_ENVIRONMENT, app.baseURL to public folder, database.default
+- on error 500 check server logs
+- on project structure change update FCPATH in index.php
+- CORS settings are in index.php   
+<br/>
+
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?
