@@ -48,4 +48,18 @@ class Verse extends ResourceController
     $this->response->setCache($options);
     return $this->respond($verses);
   }
+
+  public function search($language, $searchTerm, $searchBooksString, $skip, $take)
+  {
+    $verses = $this->model->where('language', $language)
+      ->whereIn('book', explode(',', $searchBooksString))
+      ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
+      // ->orderBy('book ASC', 'chapterNum ASC', 'verseNum ASC')
+      ->findAll($skip, $take);
+    $options = [
+      'max-age'  => 604800,
+    ];
+    $this->response->setCache($options);
+    return $this->respond($verses);
+  }
 }

@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 $routes->resource('verse', ['only' => ['show']]);
 $routes->add('chapter/(:alpha)/(:any)/(:num)', 'Verse::chapter/$1/$2/$3');
 $routes->add('range/(:alpha)/(:any)/(:num)/(:num)/(:num)', 'Verse::range/$1/$2/$3/$4/$5');
+$routes->add('search/(:alpha)/(:any)/(:any)/(:num)/(:num)', 'Verse::search/$1/$2/$3/$4/$5');
 $routes->resource('reference', ['only' => ['show']]);
 
 /*
