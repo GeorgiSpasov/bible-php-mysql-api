@@ -8,7 +8,7 @@ $routes = Services::routes();
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
 if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
+  require SYSTEMPATH . 'Config/Routes.php';
 }
 
 /*
@@ -35,7 +35,7 @@ $routes->setAutoRoute(true);
 $routes->resource('verse', ['only' => ['show']]);
 $routes->add('chapter/(:alpha)/(:any)/(:num)', 'Verse::chapter/$1/$2/$3');
 $routes->add('range/(:alpha)/(:any)/(:num)/(:num)/(:num)', 'Verse::range/$1/$2/$3/$4/$5');
-$routes->add('search/(:alpha)/(:any)/(:any)/(:num)/(:num)', 'Verse::search/$1/$2/$3/$4/$5');
+$routes->add('search/(:alpha)/(:any)/(:any)/(:any)/(:num)/(:num)', 'Verse::search/$1/$2/$3/$4/$5/$6');
 $routes->resource('reference', ['only' => ['show']]);
 
 /*
@@ -52,5 +52,5 @@ $routes->resource('reference', ['only' => ['show']]);
  * needing to reload it.
  */
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+  require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

@@ -49,17 +49,41 @@ class Verse extends ResourceController
     return $this->respond($verses);
   }
 
-  public function search($language, $searchTerm, $searchBooksString, $skip, $take)
+  public function search($language, $isWholeWord, $searchTerm, $searchBooksString, $take, $skip)
   {
-    $verses = $this->model->where('language', $language)
-      ->whereIn('book', explode(',', $searchBooksString))
-      ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
-      // ->orderBy('book ASC', 'chapterNum ASC', 'verseNum ASC')
-      ->findAll($skip, $take);
+    // limit is $take, offset - $skip
+    $verses = [];
+    $total = '';
+    if ($isWholeWord == 'true') {
+      if ($skip == 0) {
+        $total = $this->model->where('language', $language)
+          ->whereIn('book', explode(',', $searchBooksString))
+          ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
+          ->countAllResults();
+      }
+      $verses = $this->model->where('language', $language)
+        ->whereIn('book', explode(',', $searchBooksString))
+        ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
+        // ->orderBy('book ASC', 'chapterNum ASC', 'verseNum ASC')
+        ->findAll($take, $skip);
+    } else {
+      if ($skip == 0) {
+        $total = $this->model->where('language', $language)
+          ->whereIn('book', explode(',', $searchBooksString))
+          ->like('text', $searchTerm)
+          ->countAllResults();
+      }
+      $verses = $this->model->where('language', $language)
+        ->whereIn('book', explode(',', $searchBooksString))
+        ->like('text', $searchTerm)
+        // ->orderBy('book ASC', 'chapterNum ASC', 'verseNum ASC')
+        ->findAll($take, $skip);
+    }
+
     $options = [
       'max-age'  => 604800,
     ];
     $this->response->setCache($options);
-    return $this->respond($verses);
+    return $this->respond([$verses,  $total]);
   }
 }
