@@ -53,7 +53,7 @@ class Verse extends ResourceController
   {
     // limit is $take, offset - $skip
     $verses = [];
-    $total = '';
+    $total = NULL;
     if ($isWholeWord == 'true') {
       if ($skip == 0) {
         $total = $this->model->where('language', $language)
