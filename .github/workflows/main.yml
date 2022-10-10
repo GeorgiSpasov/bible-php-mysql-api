@@ -15,7 +15,7 @@ jobs:
 
       - name: Install Composer Dependencies
         working-directory: ./codeigniter
-        run: composer install --prefer-dist
+        run: composer install --no-dev
 
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
