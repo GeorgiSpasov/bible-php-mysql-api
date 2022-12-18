@@ -64,7 +64,7 @@ class Verse extends ResourceController
       $verses = $this->model->where('language', $language)
         ->whereIn('book', explode(',', $searchBooksString))
         ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
-        // ->orderBy('book ASC', 'chapterNum ASC', 'verseNum ASC')
+        ->orderBy('bookNum ASC', 'chapterNum ASC', 'verseNum ASC')
         ->findAll($take, $skip);
     } else {
       if ($skip == 0) {
@@ -76,7 +76,7 @@ class Verse extends ResourceController
       $verses = $this->model->where('language', $language)
         ->whereIn('book', explode(',', $searchBooksString))
         ->like('text', $searchTerm)
-        // ->orderBy('book ASC', 'chapterNum ASC', 'verseNum ASC')
+        ->orderBy('bookNum ASC', 'chapterNum ASC', 'verseNum ASC')
         ->findAll($take, $skip);
     }
 
