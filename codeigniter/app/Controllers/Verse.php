@@ -55,24 +55,20 @@ class Verse extends ResourceController
     $verses = [];
     $total = NULL;
     if ($isWholeWord == 'true') {
-      if ($skip == 0) {
-        $total = $this->model->where('language', $language)
-          ->whereIn('book', explode(',', $searchBooksString))
-          ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
-          ->countAllResults();
-      }
+      $total = $this->model->where('language', $language)
+        ->whereIn('book', explode(',', $searchBooksString))
+        ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
+        ->countAllResults();
       $verses = $this->model->where('language', $language)
         ->whereIn('book', explode(',', $searchBooksString))
         ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
         ->orderBy('bookNum ASC', 'chapterNum ASC', 'verseNum ASC')
         ->findAll($take, $skip);
     } else {
-      if ($skip == 0) {
-        $total = $this->model->where('language', $language)
-          ->whereIn('book', explode(',', $searchBooksString))
-          ->like('text', $searchTerm)
-          ->countAllResults();
-      }
+      $total = $this->model->where('language', $language)
+        ->whereIn('book', explode(',', $searchBooksString))
+        ->like('text', $searchTerm)
+        ->countAllResults();
       $verses = $this->model->where('language', $language)
         ->whereIn('book', explode(',', $searchBooksString))
         ->like('text', $searchTerm)
