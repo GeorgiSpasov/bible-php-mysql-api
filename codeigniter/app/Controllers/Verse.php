@@ -52,16 +52,22 @@ class Verse extends ResourceController
   public function search($language, $isWholeWord, $searchTerm, $searchBooksString, $take, $skip)
   {
     // limit is $take, offset - $skip
+    // TODO: Filter duplicates?
     $verses = [];
     $total = NULL;
+    $searchTerms = array_filter(explode(' ', $searchTerm));
+    $mappedTerms = array_map(function ($array_item) {
+      return "+$array_item";
+    }, $searchTerms);
+    $allTerms = join(" ", $mappedTerms);
     if ($isWholeWord == 'true') {
       $total = $this->model->where('language', $language)
         ->whereIn('book', explode(',', $searchBooksString))
-        ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
+        ->where('MATCH (text) AGAINST ("' . $allTerms . '" IN BOOLEAN MODE)', NULL, FALSE) // TODO: Remove NULL, FALSE)
         ->countAllResults();
       $verses = $this->model->where('language', $language)
         ->whereIn('book', explode(',', $searchBooksString))
-        ->where('MATCH (text) AGAINST ("' . $searchTerm . '")', NULL, FALSE)
+        ->where('MATCH (text) AGAINST ("' . $allTerms . '" IN BOOLEAN MODE)', NULL, FALSE)
         ->orderBy('bookNum ASC', 'chapterNum ASC', 'verseNum ASC')
         ->findAll($take, $skip);
     } else {
