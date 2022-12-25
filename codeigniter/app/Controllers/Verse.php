@@ -56,31 +56,27 @@ class Verse extends ResourceController
     $verses = [];
     $total = NULL;
     $searchTerms = array_filter(explode(' ', $searchTerm));
-    $mappedTerms = array_map(function ($array_item) {
-      return "+$array_item";
-    }, $searchTerms);
-    $allTerms = join(" ", $mappedTerms);
+    $mappedTerms = [];
     if ($isWholeWord == 'true') {
-      $total = $this->model->where('language', $language)
-        ->whereIn('book', explode(',', $searchBooksString))
-        ->where('MATCH (text) AGAINST ("' . $allTerms . '" IN BOOLEAN MODE)', NULL, FALSE) // TODO: Remove NULL, FALSE)
-        ->countAllResults();
-      $verses = $this->model->where('language', $language)
-        ->whereIn('book', explode(',', $searchBooksString))
-        ->where('MATCH (text) AGAINST ("' . $allTerms . '" IN BOOLEAN MODE)', NULL, FALSE)
-        ->orderBy('bookNum ASC', 'chapterNum ASC', 'verseNum ASC')
-        ->findAll($take, $skip);
+      $mappedTerms = array_map(function ($array_item) {
+        return "+$array_item";
+      }, $searchTerms);
     } else {
-      $total = $this->model->where('language', $language)
-        ->whereIn('book', explode(',', $searchBooksString))
-        ->like('text', $searchTerm)
-        ->countAllResults();
-      $verses = $this->model->where('language', $language)
-        ->whereIn('book', explode(',', $searchBooksString))
-        ->like('text', $searchTerm)
-        ->orderBy('bookNum ASC', 'chapterNum ASC', 'verseNum ASC')
-        ->findAll($take, $skip);
+      $mappedTerms = array_map(function ($array_item) {
+        return "+*$array_item*";
+      }, $searchTerms);
     }
+
+    $allTerms = join(" ", $mappedTerms);
+    $total = $this->model->where('language', $language)
+      ->whereIn('book', explode(',', $searchBooksString))
+      ->where('MATCH (text) AGAINST ("' . $allTerms . '" IN BOOLEAN MODE)')
+      ->countAllResults();
+    $verses = $this->model->where('language', $language)
+      ->whereIn('book', explode(',', $searchBooksString))
+      ->where('MATCH (text) AGAINST ("' . $allTerms . '" IN BOOLEAN MODE)')
+      ->orderBy('bookNum ASC', 'chapterNum ASC', 'verseNum ASC')
+      ->findAll($take, $skip);
 
     $options = [
       'max-age'  => 604800,
